@@ -505,25 +505,42 @@ imprime("Hola mundo",  "jose ", "lucas ");
 
 
 
-// var etiquetaCount = document.getElementById("count");
-// var etiquetaCountMin = document.getElementById("countMin");
+var etiquetaCount = document.getElementById("count");
+var etiquetaCountMin = document.getElementById("countMin");
 
-// var counter = 0;
-// var counterMin = 0;
+var counter = 0;
+var counterMin = 0;
 
-// setInterval(() => {
-//     counter++;
+setInterval(() => {
+    counter++;
 
-//     if (counter == 60) {
-//         counter = 0;
-//         counterMin++;
-//     }
-//     etiquetaCount.textContent = counter;
-//     etiquetaCountMin.textContent = counterMin;
+    if (counter == 60) {
+        counter = 0;
+        counterMin++;
+    }
+    etiquetaCount.textContent = counter;
+    etiquetaCountMin.textContent = counterMin;
 
-// }, 1000)
-
-
+}, 1000)
 
 
+console.log("---------------------------promise/promesa")
 
+
+
+
+fetch("https://pokeapi.co/api/v2/pokedex/2/")
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('No se pudo obtener la información del Pokémon.');
+        }
+    })
+    .then(data => {
+        console.log("data", data)
+        // Puedes mostrar más datos según tus necesidades
+    })
+    .catch(error => {
+        console.error(error);
+    });
